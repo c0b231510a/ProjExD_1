@@ -20,15 +20,17 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         bg_x -= 2
-        if bg_x <= -800:
-            bg_x += 800
+        if bg_x <= -1600:
+            bg_x += 1600
 
         screen.blit(bg_img, [bg_x, 0])
-        screen.blit(bg_img, [bg_x + 800, 0])
+        screen.blit(bg_flip_img, [bg_x + 1600, 0])
+        screen.blit(bg_img, [bg_x - 1600, 0])
+        screen.blit(bg_flip_img, [bg_x, 0])
         screen.blit(kk_img, [300, 200])
+
         pg.display.update()
         clock.tick(200)
-
 
 if __name__ == "__main__":
     pg.init()
